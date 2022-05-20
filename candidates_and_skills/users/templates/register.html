@@ -1,0 +1,15 @@
+{% extends "ck_main_app/base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name='submit'>Регистрация</button>
+        <input type="hidden" name="next" value="{% url 'ck_main_app:users' %}">
+    </form>
+
+{% endblock content %}

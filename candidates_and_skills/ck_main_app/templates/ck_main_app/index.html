@@ -1,0 +1,11 @@
+{% extends 'ck_main_app/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    {% for user in users %}
+        <p>
+            <a href="{% url 'ck_main_app:user_details' user.id %}">{{user.surname}} {{user.name}} {{user.fathers_name}}</a>
+        </p>
+    {% endfor %}
+{% endblock content %}

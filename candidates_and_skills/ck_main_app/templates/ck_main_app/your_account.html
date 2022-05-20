@@ -1,0 +1,21 @@
+{% extends 'ck_main_app/base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+    <h1>{{user.surname}} {{user.name}} {{user.fathers_name}}</h1>
+    {% for skill_tag in skill_tags %}
+        <h2>{{skill_tag.name}}</h2>
+
+        {% for skill in skills %}
+            {% if skill.tag == skill_tag %}
+                <p>{{ skill.name }}</p>
+            {% endif %}
+        {% endfor %}
+
+    {% endfor %}
+
+    <hr>
+    <a href="{% url 'ck_main_app:add_skills' %}">Добавить навыки</a>
+
+{% endblock content %}
