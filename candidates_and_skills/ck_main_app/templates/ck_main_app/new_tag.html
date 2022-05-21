@@ -1,0 +1,15 @@
+{% extends "ck_main_app/base.html" %}
+
+{% block title %}Добавить навык{% endblock %}
+
+{% block content %}
+
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name='submit'>Добавить</button>
+        <input type="hidden" name="next" value="{% url 'ck_main_app:your_account' %}">
+    </form>
+
+{% endblock content %}
